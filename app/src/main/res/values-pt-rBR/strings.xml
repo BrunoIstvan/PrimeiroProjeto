@@ -8,5 +8,7 @@
     <string name="titulo_formulario">Calculadora TOP IMC</string>
     <string name="button_calcular">Calcular</string>
     <string name="button_limpar">Limpar</string>
+    <string name="label_titulo_resultado">Seu IMC é:</string>
+    <string name="label_desenvolvido_por">Desenvolvido por BICMSystems</string>
 
 </resources>
