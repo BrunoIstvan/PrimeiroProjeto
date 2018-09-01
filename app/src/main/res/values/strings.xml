@@ -1,17 +1,13 @@
 <resources>
+
     <string name="app_name" translatable="false">PrimeiroProjeto</string>
-
     <string name="logo_balanca">Imagem de uma balança</string>
-
-    <string name="hint_peso">Informe seu peso (em Kg)</string>
-    <string name="hint_altura">Informe sua altura (em cm)</string>
-
-    <string name="label_resultado">Resultado</string>
-
-    <string name="titulo_formulario">Calculadora TOP IMC</string>
-
-    <string name="button_calcular">Calcular</string>
-    <string name="button_limpar">Limpar</string>
+    <string name="hint_peso">Weight (in Kg)</string>
+    <string name="hint_altura">Height (in cm)</string>
+    <string name="label_resultado">Result</string>
+    <string name="titulo_formulario">Calculate TOP IMC</string>
+    <string name="button_calcular">Calculate</string>
+    <string name="button_limpar">Clear</string>
 
 </resources>
 

@@ -19,7 +19,7 @@
 
     <android.support.design.widget.TextInputLayout
         style="@style/textInputLayout"
-        android:id="@+id/edt_peso"
+        android:id="@+id/inputPeso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +34,11 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edt_altura"
+        android:id="@+id/inputAltura"
         style="@style/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_peso">
+        app:layout_constraintTop_toBottomOf="@+id/inputPeso">
 
         <android.support.design.widget.TextInputEditText
             android:inputType="numberDecimal"
@@ -49,24 +49,24 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_calcular"
+        android:id="@+id/btCalcular"
         style="@style/button"
         android:background="@color/colorPrimary"
         android:text="@string/button_calcular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_altura" />
+        app:layout_constraintTop_toBottomOf="@+id/inputAltura" />
 
     <Button
-        android:id="@+id/btn_limpar"
+        android:id="@+id/btLimpar"
         style="@style/button"
         android:text="@string/button_limpar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_calcular" />
+        app:layout_constraintTop_toBottomOf="@+id/btCalcular" />
 
     <TextView
-        android:id="@+id/tv_resultado"
+        android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -76,6 +76,6 @@
         android:textSize="@dimen/resultado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_limpar" />
+        app:layout_constraintTop_toBottomOf="@+id/btLimpar" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,55 +1,68 @@
 package br.com.bicmsystems.primeiroprojeto
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.TextInputLayout
-import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import android.widget.Toast
+import br.com.bicmsystems.primeiroprojeto.extensions.isEmpty
+import br.com.bicmsystems.primeiroprojeto.extensions.showShortToast
+import br.com.bicmsystems.primeiroprojeto.extensions.value
+import br.com.bicmsystems.primeiroprojeto.utils.ConstantesExtra
+import kotlinx.android.synthetic.main.activity_formulario.*
 
-class FormularioActivity : AppCompatActivity(), View.OnClickListener {
 
-    var edt_peso: TextInputLayout? = null
-    var edt_altura: TextInputLayout? = null
-    var tv_resultado: TextView? = null
-    var btn_calcular: Button? = null
-    var btn_limpar: Button? = null
+class FormularioActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario)
 
-        edt_peso = findViewById(R.id.edt_peso)
-        edt_altura = findViewById(R.id.edt_altura)
-        tv_resultado = findViewById(R.id.tv_resultado)
-        btn_calcular = findViewById(R.id.btn_calcular)
-        btn_calcular?.setOnClickListener(this)
-        btn_limpar = findViewById(R.id.btn_limpar)
-        btn_limpar?.setOnClickListener(this)
+        btCalcular.setOnClickListener {
+            calculaIMC()
+            //chamaTelaResultado()
+        }
+        btLimpar.setOnClickListener { limpaCampos() }
 
     }
 
-    override fun onClick(v: View?) {
+    fun chamaTelaResultado() {
+        val telaResultadoIntent = Intent(this, ResultadoActivity::class.java)
+        telaResultadoIntent.putExtra(ConstantesExtra.KEY_PESO, inputPeso.value())
+        telaResultadoIntent.putExtra(ConstantesExtra.KEY_ALTURA, inputAltura.value())
+        startActivity(telaResultadoIntent)
+    }
 
-        when(v) {
-            btn_calcular -> {
-                val peso: Double = edt_peso?.editText?.text.toString().toDouble()
-                val altura: Double = edt_altura?.editText?.text.toString().toDouble()
-                var imc: Double = 0.0
-                if (altura > 100) {
-                    imc = peso / (altura / 100 * altura / 100)
-                } else {
-                    imc = peso / (altura * altura)
-                }
-                tv_resultado?.setText(imc.toString())
-            }
-            btn_limpar -> {
-                edt_peso?.editText?.setText("")
-                edt_altura?.editText?.setText("")
-                tv_resultado?.setText(resources.getString(R.string.label_resultado))
-            }
+    fun calculaIMC() {
+
+        val pesoStr = inputPeso?.editText?.text.toString()
+        val alturaStr = inputAltura?.editText?.text.toString()
+        if(pesoStr.isNullOrEmpty() || pesoStr.isNullOrBlank()) {
+            //Toast.makeText(this, "Informe o peso", Toast.LENGTH_SHORT).show()
+            showShortToast(this@FormularioActivity, "Informe o peso")
+            return
         }
+        if(alturaStr.isNullOrEmpty() || alturaStr.isNullOrBlank()) {
+            //Toast.makeText(this, "Informe a altura", Toast.LENGTH_SHORT).show()
+            showShortToast(this@FormularioActivity, "Informe a altura")
+            return
+        }
+        val peso: Double = pesoStr.toDouble()
+        val altura: Double = alturaStr.toDouble()
+        var imc: Double = 0.0
+        if (altura > 100) {
+            imc = peso / (altura / 100 * altura / 100)
+        } else {
+            imc = peso / (altura * altura)
+        }
+        tvResultado?.setText(imc.toString())
 
+    }
+
+    fun limpaCampos() {
+        inputPeso.editText?.text?.clear()
+        inputAltura.editText?.text?.clear()
+        inputPeso.editText?.requestFocus()
     }
 
 
