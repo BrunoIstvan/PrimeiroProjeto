@@ -4,12 +4,20 @@
     <string name="logo_balanca">Image of a balance</string>
     <string name="hint_peso">Weight (in Kg)</string>
     <string name="hint_altura">Height (in cm)</string>
-    <string name="label_resultado">Result</string>
     <string name="titulo_formulario">Calculate TOP IMC</string>
     <string name="button_calcular">Calculate</string>
     <string name="button_limpar">Clear</string>
     <string name="label_titulo_resultado">Your IMC is:</string>
     <string name="label_desenvolvido_por">Developed by BICMSystems</string>
+    <string name="label_ideal_weight">Ideal Weight</string>
+    <string name="magreza_grave">Severe thinness</string>
+    <string name="magreza_leve">Light weight</string>
+    <string name="abaixo_peso">Under weight</string>
+    <string name="peso_ideal">Ideal weight</string>
+    <string name="sobrepeso">Overweight</string>
+    <string name="obesidade_1">Obesity 1</string>
+    <string name="obesidade_2">Obesity 2</string>
+    <string name="obesidade_3">Obesity 3</string>
 
 </resources>
 

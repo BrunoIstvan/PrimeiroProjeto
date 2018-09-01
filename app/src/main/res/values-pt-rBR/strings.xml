@@ -4,11 +4,19 @@
     <string name="logo_balanca">Imagem de uma balança</string>
     <string name="hint_peso">Informe seu peso (em Kg)</string>
     <string name="hint_altura">Informe sua altura (em cm)</string>
-    <string name="label_resultado">Resultado</string>
     <string name="titulo_formulario">Calculadora TOP IMC</string>
     <string name="button_calcular">Calcular</string>
     <string name="button_limpar">Limpar</string>
     <string name="label_titulo_resultado">Seu IMC é:</string>
     <string name="label_desenvolvido_por">Desenvolvido por BICMSystems</string>
+    <string name="label_ideal_weight">Peso Ideal</string>
+    <string name="magreza_grave">Magreza grave</string>
+    <string name="magreza_leve">Magreza leve</string>
+    <string name="abaixo_peso">Abaixo do peso</string>
+    <string name="peso_ideal">Peso ideal</string>
+    <string name="sobrepeso">Sobrepeso</string>
+    <string name="obesidade_1">Obesidade 1</string>
+    <string name="obesidade_2">Obesidade 2</string>
+    <string name="obesidade_3">Obesidade 3</string>
 
 </resources>

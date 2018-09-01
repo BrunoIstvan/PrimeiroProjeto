@@ -19,11 +19,28 @@ class FormularioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_formulario)
 
         btCalcular.setOnClickListener {
-            calculaIMC()
-            //chamaTelaResultado()
+            if(camposValidos()) {
+                chamaTelaResultado()
+                //calculaIMC()
+            }
         }
         btLimpar.setOnClickListener { limpaCampos() }
+    }
 
+    fun camposValidos(): Boolean {
+        val pesoStr = inputPeso?.editText?.text.toString()
+        val alturaStr = inputAltura?.editText?.text.toString()
+        if(pesoStr.isNullOrEmpty() || pesoStr.isNullOrBlank()) {
+            //Toast.makeText(this, "Informe o peso", Toast.LENGTH_SHORT).show()
+            showShortToast(this@FormularioActivity, "Informe o peso")
+            return false
+        }
+        if(alturaStr.isNullOrEmpty() || alturaStr.isNullOrBlank()) {
+            //Toast.makeText(this, "Informe a altura", Toast.LENGTH_SHORT).show()
+            showShortToast(this@FormularioActivity, "Informe a altura")
+            return false
+        }
+        return true
     }
 
     fun chamaTelaResultado() {
@@ -33,31 +50,31 @@ class FormularioActivity : AppCompatActivity() {
         startActivity(telaResultadoIntent)
     }
 
-    fun calculaIMC() {
+//    fun calculaIMC() {
 
-        val pesoStr = inputPeso?.editText?.text.toString()
-        val alturaStr = inputAltura?.editText?.text.toString()
-        if(pesoStr.isNullOrEmpty() || pesoStr.isNullOrBlank()) {
-            //Toast.makeText(this, "Informe o peso", Toast.LENGTH_SHORT).show()
-            showShortToast(this@FormularioActivity, "Informe o peso")
-            return
-        }
-        if(alturaStr.isNullOrEmpty() || alturaStr.isNullOrBlank()) {
-            //Toast.makeText(this, "Informe a altura", Toast.LENGTH_SHORT).show()
-            showShortToast(this@FormularioActivity, "Informe a altura")
-            return
-        }
-        val peso: Double = pesoStr.toDouble()
-        val altura: Double = alturaStr.toDouble()
-        var imc: Double = 0.0
-        if (altura > 100) {
-            imc = peso / (altura / 100 * altura / 100)
-        } else {
-            imc = peso / (altura * altura)
-        }
-        tvResultado?.setText(imc.toString())
+//        val pesoStr = inputPeso?.editText?.text.toString()
+//        val alturaStr = inputAltura?.editText?.text.toString()
+//        if(pesoStr.isNullOrEmpty() || pesoStr.isNullOrBlank()) {
+//            //Toast.makeText(this, "Informe o peso", Toast.LENGTH_SHORT).show()
+//            showShortToast(this@FormularioActivity, "Informe o peso")
+//            return
+//        }
+//        if(alturaStr.isNullOrEmpty() || alturaStr.isNullOrBlank()) {
+//            //Toast.makeText(this, "Informe a altura", Toast.LENGTH_SHORT).show()
+//            showShortToast(this@FormularioActivity, "Informe a altura")
+//            return
+//        }
+//        val peso: Double = pesoStr.toDouble()
+//        val altura: Double = alturaStr.toDouble()
+//        var imc: Double = 0.0
+//        if (altura > 100) {
+//            imc = peso / (altura / 100 * altura / 100)
+//        } else {
+//            imc = peso / (altura * altura)
+//        }
+//        tvResultado?.setText(imc.toString())
 
-    }
+//    }
 
     fun limpaCampos() {
         inputPeso.editText?.text?.clear()
